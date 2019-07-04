@@ -67,5 +67,15 @@ final class LinuxBaseboard extends AbstractBaseboard {
         if (boardSerialNumber != null && !boardSerialNumber.trim().isEmpty()) {
             setSerialNumber(boardSerialNumber.trim());
         }
+        
+        if (boardSerialNumber == null  || boardSerialNumber.trim().isEmpty()) {
+            String machineId = FileUtil.getStringFromFile("/etc/machine-id");
+            if (machineId != null) {
+                machineId = machineId.trim();
+            }
+            setSerialNumber(machineId);
+        }
+        
+        
     }
 }

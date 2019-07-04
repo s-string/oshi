@@ -112,6 +112,11 @@ final class LinuxComputerSystem extends AbstractComputerSystem {
                 }
             }
         }
+        
+        if (serialNumber == null || "".equals(serialNumber) || UNKNOWN.equals(serialNumber)) {
+            serialNumber = FileUtil.getStringFromFile("/etc/machine-id");
+        }
+        
         return serialNumber;
     }
 }

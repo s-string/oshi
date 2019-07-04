@@ -69,6 +69,8 @@ public class SystemInfo implements Serializable {
         } else {
             currentPlatformEnum = PlatformEnum.UNKNOWN;
         }
+
+    
     }
 
     /**
@@ -139,6 +141,7 @@ public class SystemInfo implements Serializable {
                 throw new UnsupportedOperationException("Operating system not supported: " + Platform.getOSType());
             }
         }
+       
         return this.hardware;
     }
 }
